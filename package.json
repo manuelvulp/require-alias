@@ -1,0 +1,15 @@
+{
+  "name": "require-alias",
+  "version": "0.2.0",
+  "description": "Path manager for Node.js",
+  "main": "index",
+  "keywords": ["node", "require", "path", "paths", "manager", "relative", "from", "project root", "absolute", "absolute path", "absolutepath", "root", "rootpath", "root path"],
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Vulp",
+  "license": "MIT"
+}
