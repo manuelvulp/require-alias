@@ -30,10 +30,7 @@ npm install require-alias
 
 &nbsp;
 
-
 #Example
-
-&nbsp;
 
 ```javascript
 var Alias = require('../lib/require-alias');
@@ -121,11 +118,7 @@ bazAlias(); // Output: 'Hello Baz'
 #API
 List of all available methods
 
-&nbsp;
-
 #### `alias(String, Boolean)`
-
-&nbsp;
 
 - `String` - path to your file
 
