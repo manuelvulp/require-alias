@@ -1,3 +1,5 @@
+![Alias logo](https://raw.githubusercontent.com/manuelvulp/require-alias/master/img/alias.jpg)
+
 ### [Node.js] Alias
 
 Library that might help you deal with Node paths 
