@@ -1,6 +1,6 @@
 {
     "name": "require-alias",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "repository": "https://github.com/manuelvulp/require-alias",
     "homepage": "https://github.com/manuelvulp/require-alias",
     "description": "Path manager for Node.js",
@@ -28,7 +28,7 @@
         "sinon": "~1.10.0"
     },
     "scripts": {
-        "tests": "mocha  --require must -w --recursive -c --reporter dot",
+        "test": "mocha  --require must -w --recursive -c --reporter dot",
         "coverage": "mocha --require blanket --require must --reporter html-cov test/**/*.js > coverage.html"
     },
     "config": {
