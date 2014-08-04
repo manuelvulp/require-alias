@@ -28,8 +28,6 @@ npm install require-alias
 
   - [`delete(String)`](#deletestring)
 
-&nbsp;
-
 #Example
 
 ```javascript
