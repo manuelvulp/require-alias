@@ -124,28 +124,19 @@ List of all available methods
 
 - `Boolean` - Return file or path
 
-&nbsp;
-
 ```javascript
 // $ node example/app.js
 var file = alias('foo') // Returns export of file example/foo.js
 ```
-
 
 ```javascript
 // $ node example/app.js
 var file = alias('foo', true) // Returns path to example/foo
 ```
 
-&nbsp;
-
 #### `root(String)`
 
-&nbsp;
-
 - `String` - Assign new root relative to your main runnable
-
-&nbsp;
 
 ```javascript
 // $ node example/dir/app.js
@@ -154,15 +145,9 @@ Alias.configure.root('../');
 // root is now example instead on example/dir
 ```
 
-&nbsp;
-
 #### `paths(Object)`
 
-&nbsp;
-
 - `Object` - Key-value object as key of alias and value of path
-
-&nbsp;
 
 ```javascript
 // $ node example/app.js
@@ -175,11 +160,7 @@ Alias.configure.paths({
 // alias('@bar/test') points to example/folders/example/bar/test.js
 ```
 
-&nbsp;
-
 #### `storage`
-
-&nbsp;
 
 Returns current aliases as key-value object
 
@@ -191,20 +172,12 @@ Alias.configure.paths({
     '@bar': 'folder/example/bar'
 });
 ```
-
-&nbsp;
-
 #### `add(String, String)`
-
-&nbsp;
 
 - `String` - Name of alias prefixed with `@` eg `@foo`
 &nbsp;
 
 - `String` - Path reference of alias eg `../folder/another/folder`
-
-&nbsp;
-
 
 Add new alias to storage
 
@@ -225,11 +198,7 @@ var foobar = Alias.storage;
  */
 ```
 
-&nbsp;
-
 #### `delete(String)`
-
-&nbsp;
 
 - `String` - Name of existing alias
 &nbsp;
