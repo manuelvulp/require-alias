@@ -12,19 +12,19 @@ npm install require-alias
 - [Example](#example)
 
 - [API](#api)
-  - [`alias(String, Boolean)`](#alias)
+  - [`alias(String, Boolean)`](#aliasstring-boolean)
  
   - `configure`
 
-    - [`root(String)`](#root)
+    - [`root(String)`](#rootstring)
 
-    - [`paths(Object)`](#paths)
+    - [`paths(Object)`](#pathsobject)
     
   - [`storage`](#storage)
 
-  - [`add(String, String)`](#add)
+  - [`add(String, String)`](#addstring-string)
 
-  - [`delete(String)`](#delete)
+  - [`delete(String)`](#deletestring)
 
 &nbsp;
 
@@ -37,15 +37,15 @@ npm install require-alias
 var Alias = require('../lib/require-alias');
 
 /**
- * In current descriptions context, ALIAS_ROOT points to path that is currently set as root in Alias library
- * and ROOT points to the root of this project. Also do note that all directories are surrounded with {} just
- * to avoid confusion
+ * In current descriptions context, ALIAS_ROOT points to path that is currently set as root in Alias 
+ * library and ROOT points to the root of this project. Also do note that all directories are 
+ * surrounded with {} just to avoid confusion
  *
- * -----------------------------------------------------------------------------------------------------------------
+ * -------------------------------------------------------------------------------------------------
  *
- * By default ALIAS_ROOT points to your projects main file / runnable. Currently we are running {example/app.js} file
- * which means our ALIAS_ROOT points to {ROOT/example/} folder. Say we wanted that all our aliases should be relative
- * to absolute root, so we manually configure this.
+ * By default ALIAS_ROOT points to your projects main file / runnable. Currently we are running 
+ * {example/app.js} file which means our ALIAS_ROOT points to {ROOT/example/} folder. Say we wanted 
+ * that all our aliases should be relative to absolute root, so we manually configure this.
  */
 
 Alias.configure.root('../');
@@ -81,8 +81,8 @@ console.log(fooPath); // Output: ./../example/folders/foo/file
 console.log(barPath); // Output: ./../example/folders/bar/file
 
 /**
- * NB! If you haven't configured an alias for a path that you are trying to require, it will use the default require
- * method. In other words:
+ * NB! If you haven't configured an alias for a path that you are trying to require, it will use the
+ * default require method. In other words:
  *
  * alias('folders/foo/file');
  *    is
@@ -102,7 +102,8 @@ barAlias(); // Output: 'Hello Bar'
 barRequire(); // Output: 'Hello Bar'
 
 /**
- * Because no relative path is defined (./ or ../), Alias tries to require this file as ALIAS_ROOT + your_path
+ * Because no relative path is defined (./ or ../), Alias tries to require this file as
+ * ALIAS_ROOT + your_path
  */
  
 var bazAlias = alias('example/baz'); 
