@@ -28,7 +28,7 @@
         "sinon": "~1.10.0"
     },
     "scripts": {
-        "test": "mocha  --require must -w --recursive -c --reporter spec",
+        "test": "mocha  --require must --recursive -c --reporter spec",
         "coverage": "mocha --require blanket --require must --reporter html-cov test/**/*.js > coverage.html"
     },
     "config": {
