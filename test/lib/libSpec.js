@@ -41,9 +41,8 @@ describe('Alias', function () {
     });
 
     it('@foo should contain test\lib\foo', function () {
-        var realPath = 'test\\lib\\foo';
-        var normalized = path.normalize(alias('@foo', true));
-        console.log(normalized);
+        var realPath = 'test/lib/foo';
+        var normalized = path.normalize(alias('@foo', true)).replace(/\\/g, '/');
         expect(normalized.indexOf(realPath) > -1).to.be.true();
     });
 
