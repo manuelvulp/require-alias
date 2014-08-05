@@ -41,7 +41,7 @@ describe('Alias', function () {
     });
 
     it('@foo should resolve to real path that points to foo', function () {
-        var realPath = 'require-alias\\test\\lib\\foo';
+        var realPath = '\\test\\lib\\foo';
         var normalized = path.normalize(alias('@foo', true));
         expect(normalized.indexOf(realPath) > -1).to.be.true();
     });
