@@ -1,3 +1,4 @@
+[![Coverage Status](https://img.shields.io/coveralls/manuelvulp/require-alias.svg)](https://coveralls.io/r/manuelvulp/require-alias)
 ![Alias logo](https://raw.githubusercontent.com/manuelvulp/require-alias/master/img/alias.jpg)
 
 ### [Node.js] Alias
