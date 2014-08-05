@@ -35,14 +35,15 @@ describe('Alias', function () {
         expect(Alias.storage['@baz']).to.equal('foo/baz');
     });
 
-    it('should not contain key pair @bar', function () {
+    it('should not contain key @bar', function () {
         Alias.delete('@bar');
         expect(Alias.storage).to.not.have.property('@bar');
     });
 
-    it('@foo should resolve to real path that points to foo', function () {
+    it('@foo should contain test\lib\foo', function () {
         var realPath = 'test\\lib\\foo';
         var normalized = path.normalize(alias('@foo', true));
+        console.log(normalized);
         expect(normalized.indexOf(realPath) > -1).to.be.true();
     });
 
