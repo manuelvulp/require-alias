@@ -29,7 +29,9 @@
     },
     "scripts": {
         "test": "mocha  --require must --recursive -c --reporter spec",
-        "coverage": "mocha --require blanket --require must --reporter html-cov test/**/*.js > coverage.html"
+        "testw": "mocha  --require must --recursive -c --reporter spec -w",
+        "coverage": "mocha --require blanket --require must --reporter html-cov test/**/*.js > coverage.html",
+        "coveralls": "mocha --require blanket --require must --reporter mocha-lcov-reporter test/**/*.js | coveralls"
     },
     "config": {
         "blanket": {
