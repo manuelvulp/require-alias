@@ -2,7 +2,6 @@
 
 Library that might help you deal with Node paths 
 
-
 ```
 npm install require-alias
 ```
@@ -35,12 +34,7 @@ npm install require-alias
  
     - [`require(String)`](#requirestring)
 
-&nbsp;
-
-
 #Example
-
-&nbsp;
 
 ```javascript
 /**
@@ -134,11 +128,7 @@ console.log(pathToBaz); // Output: C:\require-alias\example\app\baz (Or wherever
  */
 ```
 
-
 #API
-
-&nbsp;
-
 
 ```javascript
 var alias = new Alias();
@@ -146,103 +136,52 @@ var alias = new Alias();
 
 #### `alias.root.set(String)`
 
-&nbsp;
-
 - `String` - New root path
-
-&nbsp;
-
 #### `alias.root.get()`
-
-&nbsp;
 
 - Returns current root
 
-&nbsp;
-
 #### `alias.storage(String)`
-
-&nbsp;
 
 Returns path of given alias or the whole storage
 
-&nbsp;
-
 - `String` (optional) - Alias (eg `'@foo'`)
-
-&nbsp;
 
 #### `alias.add(String, String)`
 
-&nbsp;
-
 Add single alias
-
-&nbsp;
 
 - `String` - Alias (eg `'@foo'`)
 
 - `String` - Path reference of alias (eg `'../folder/another/folder'`)
 
-&nbsp;
-
 #### `alias.add(Object)`
-
-&nbsp;
 
 Add single / multiple alias(es)
 
-&nbsp;
-
 - `Object` - Key-value object where key is alias and value is path reference alias (eg `{@foo: 'foo/bar'}`)
-
-&nbsp;
 
 #### `alias.delete(String)`
 
-&nbsp;
-
 Deletes single alias
 
-&nbsp;
-
 - `String` - Alias (eg `'@foo'`)
-
-&nbsp;
 
 #### `alias.delete(Array)`
 
-&nbsp;
-
 Deletes multiple aliases
-
-&nbsp;
 
 - `Array` - Array of strings, each being alias (eg `['@foo', '@bar']`)
 
-&nbsp;
-
 #### `alias.path(String)`
-
-&nbsp;
 
 Returns path reference of alias
 
-&nbsp;
-
 - `String` - Alias (eg `'@foo'`)
-
-&nbsp;
 
 #### `alias.require(String)`
 
-&nbsp;
-
-Returns module export of alias 
-
-&nbsp;
+Returns module export of alias
 
 - `String` - Alias (eg `'@foo'`)
-
-&nbsp;
 

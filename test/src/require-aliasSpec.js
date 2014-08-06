@@ -54,6 +54,7 @@ describe('Alias', function () {
     it('should return correct path of file', function () {
         alias.root.set(root);
         var fooPath = alias.path('folders/foo/file');
+        console.log(fooPath);
         expect(fooPath.indexOf('example\\folders\\foo\\file') > -1).to.be.true();
     });
 
