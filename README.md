@@ -1,4 +1,5 @@
 [![Coverage Status](https://img.shields.io/coveralls/manuelvulp/require-alias.svg)](https://coveralls.io/r/manuelvulp/require-alias)
+[![Codeship Status for manuelvulp/require-alias](https://codeship.io/projects/9276ef20-fea0-0131-5487-5eefab01992e/status?branch=master)](https://codeship.io/projects/29590)
 ![Alias logo](https://raw.githubusercontent.com/manuelvulp/require-alias/master/img/alias.jpg)
 
 ### [Node.js] Alias
