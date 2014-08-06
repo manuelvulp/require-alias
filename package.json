@@ -1,6 +1,6 @@
 {
     "name": "require-alias",
-    "version": "0.3.4",
+    "version": "1.0.0",
     "repository": "https://github.com/manuelvulp/require-alias",
     "homepage": "https://github.com/manuelvulp/require-alias",
     "description": "Path manager for Node.js",
@@ -35,7 +35,7 @@
     },
     "config": {
         "blanket": {
-            "pattern": "lib/"
+            "pattern": "src/"
         }
     }
 }

@@ -1,76 +1,89 @@
-var Alias = require('../lib/require-alias');
-
 /**
- * In current descriptions context, ALIAS_ROOT points to path that is currently set as root in Alias library
- * and ROOT points to the root of this project. Also do note that all directories are surrounded with {} just
- * to avoid confusion
- *
- * -----------------------------------------------------------------------------------------------------------------
- *
- * By default ALIAS_ROOT points to your projects main file / runnable. Currently we are running {example/app.js} file
- * which means our ALIAS_ROOT points to {ROOT/example/} folder. Say we wanted that all our aliases should be relative
- * to absolute root, so we manually configure this.
+ * Require and configure Alias with initial options
  */
 
-Alias.configure.root('../');
+var Alias = require('../src/require-alias');
 
-/**
- * Everything is now relative to {/example/../} aka {ROOT}
- * Lets setup few aliases to point to some folders
- */
+var exampleAlias = new Alias({
 
-Alias.configure.paths({
-    '@foo': 'example/folders/foo', // {ROOT/example/folders/foo}
-    '@folders': 'example/folders' // {ROOT}/example/folders}
+    root: './app/',
+
+    aliases: {
+        '@models': 'models',
+        '@random': 'random'
+    }
+
 });
 
 /**
- * Require files and execute
+ * Add some more aliases
  */
 
-var foo = alias('@foo/file');
-var bar = alias('@folders/bar/file');
-
-foo(); // Output: 'Hello Foo'
-bar(); // Output: 'Hello Bar' 
+exampleAlias.add({
+    '@handlers': 'handlers',
+    '@bar': 'models/bar'
+});
 
 /**
- * Often we need paths, not exports. To get paths, pass in second parameter as 'true' to alias
+ * Add single alias
  */
 
-var fooPath = alias('@foo/file', true);
-var barPath = alias('@folders/bar/file', true);
-
-console.log(fooPath); // Output: ./../example/folders/foo/file
-console.log(barPath); // Output: ./../example/folders/bar/file
+exampleAlias.add('@bar', 'models/bar');
 
 /**
- * NB! If you haven't configured an alias for a path that you are trying to require, it will use the default require
- * method. In other words:
+ * Delete single alias
+ */
+
+exampleAlias.delete('@random');
+
+/**
+ * Get path to foo using alias + path
+ */
+
+var pathToFoo = exampleAlias.path('@handlers/for/foo');
+var foo = require(pathToFoo);
+console.log(foo()); // Output: Foo
+
+/**
+ * Get path to bar with using only alias
+ */
+
+var pathToBar = exampleAlias.path('@bar');
+var bar = require(pathToBar);
+console.log(bar()); // Output: Bar
+
+/**
+ * This is the basic usage.
  *
- * alias('folders/foo/file');
- *    is
- * require('folders/foo/file');
+ * You can also use it in other ways to make your life easier. Say you don't like
+ * the functionality of default require and do not wish to write most of the time
+ *
+ *      require(alias('@foo/bar'))
+ *
+ * You may assign alias to global variable and use it instead of require:
  */
 
-var fooAlias = alias('./folders/foo/file');
-var fooRequire = require('./folders/foo/file');
-
-fooAlias(); // Output: 'Hello Foo'
-fooRequire(); // Output: 'Hello Foo'
-
-var barAlias = alias('../example/folders/bar/file');
-var barRequire = require('../example/folders/bar/file');
-
-barAlias(); // Output: 'Hello Bar'
-barRequire(); // Output: 'Hello Bar'
+global.alias = exampleAlias;
 
 /**
- * Because no relative path is defined (./ or ../), Alias tries to require this file as ALIAS_ROOT + your_path
+ * Just an example
  */
- 
-var bazAlias = alias('example/baz'); 
-// var bazRequire = require('example/baz'); // Does not work
 
-bazAlias(); // Output: 'Hello Baz'
-// bazRequire(); // Output: throws error
+alias.add('@baz', 'baz');
+var baz = alias.require('@baz');
+console.log(baz()); // Output: Baz
+
+var pathToBaz = alias.path('@baz');
+console.log(pathToBaz); // Output: C:\require-alias\example\app\baz (Or wherever
+                        // your project is located
+
+/**
+ * Note
+ *
+ * Whether you assign alias to global variable or not is up to you. Even though it is
+ * highly recommended (good practice) to not assign anything to global variables, this
+ * might be a good candidate for global scope. The intent of this "helper" was to make
+ * requiring modules and paths easier, maybe even replace the majority of cases where
+ * "require" is used.
+ *
+ */

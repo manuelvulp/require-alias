@@ -1,3 +1,5 @@
 module.exports = function () {
-  console.log('Hello Foo');
+    var message = 'Hello Foo';
+    console.log(message);
+    return message;
 };

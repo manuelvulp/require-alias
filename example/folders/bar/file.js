@@ -1,3 +1,5 @@
 module.exports = function () {
-  console.log('Hello Bar');
+    var message = 'Hello Bar';
+    console.log(message);
+    return message;
 };

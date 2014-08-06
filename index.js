@@ -1,1 +1,1 @@
-module.exports = require('./lib/require-alias');
+module.exports = require('./src/require-alias');
