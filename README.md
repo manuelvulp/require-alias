@@ -1,3 +1,6 @@
+[![Coverage Status](https://img.shields.io/coveralls/manuelvulp/require-alias.svg)](https://coveralls.io/r/manuelvulp/require-alias)
+![Alias logo](https://raw.githubusercontent.com/manuelvulp/require-alias/master/img/alias.jpg)
+
 ### [Node.js] Alias
 
 Library that might help you deal with Node paths 
@@ -16,23 +19,23 @@ npm install require-alias
  
     - `root`
 
-        - [`set(String)`](#setstring)
+        - [`set(String)`](#aliasrootsetstring)
 
-        - [`get()`](#get)
+        - [`get()`](#aliasrootget)
  
-    - [`storage(String)`](#storagestring)
+    - [`storage(String)`](#aliasstoragestring)
  
-    - [`add(String, String)`](#addstring-string)
+    - [`add(String, String)`](#aliasaddstring-string)
  
-    - [`add(Object)`](#addobject)
+    - [`add(Object)`](#aliasaddobject)
  
-    - [`delete(String)`](#deletestring)
+    - [`delete(String)`](#aliasdeletestring)
  
-    - [`delete(Array)`](#deletearray)
+    - [`delete(Array)`](#aliasdeletearray)
  
-    - [`path(String)`](#pathstring)
+    - [`path(String)`](#aliaspathstring)
  
-    - [`require(String)`](#requirestring)
+    - [`require(String)`](#aliasrequirestring)
 
 #Example
 
@@ -136,52 +139,77 @@ var alias = new Alias();
 
 #### `alias.root.set(String)`
 
+
 - `String` - New root path
+
 #### `alias.root.get()`
+
 
 - Returns current root
 
+
 #### `alias.storage(String)`
+
 
 Returns path of given alias or the whole storage
 
+
 - `String` (optional) - Alias (eg `'@foo'`)
+
 
 #### `alias.add(String, String)`
 
+
 Add single alias
 
+
 - `String` - Alias (eg `'@foo'`)
+
 
 - `String` - Path reference of alias (eg `'../folder/another/folder'`)
 
+
 #### `alias.add(Object)`
+
 
 Add single / multiple alias(es)
 
+
 - `Object` - Key-value object where key is alias and value is path reference alias (eg `{@foo: 'foo/bar'}`)
+
 
 #### `alias.delete(String)`
 
+
 Deletes single alias
 
+
 - `String` - Alias (eg `'@foo'`)
+
 
 #### `alias.delete(Array)`
 
+
 Deletes multiple aliases
+
 
 - `Array` - Array of strings, each being alias (eg `['@foo', '@bar']`)
 
+
 #### `alias.path(String)`
+
 
 Returns path reference of alias
 
+
 - `String` - Alias (eg `'@foo'`)
+
 
 #### `alias.require(String)`
 
+
 Returns module export of alias
+
 
 - `String` - Alias (eg `'@foo'`)
 
