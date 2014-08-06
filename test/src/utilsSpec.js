@@ -25,7 +25,7 @@ describe('Utils', function () {
     it('should replace alias in path', function () {
         var result = utils.getAliasAsPath('@foo', alias);
         console.log(result);
-        expect(result.indexOf('foo\\bar') > -1).to.be.true();
+        expect(result.indexOf('foo/bar') > -1).to.be.true();
     });
 
     it('should return matched alias', function () {
@@ -43,7 +43,7 @@ describe('Utils', function () {
         var destination = 'folders/foo';
         var fromRoot = utils.fromRoot(destination, alias);
         console.log(fromRoot);
-        expect(fromRoot.indexOf('example\\folders\\foo') > -1).to.be.true();
+        expect(fromRoot.indexOf('example/folders/foo') > -1).to.be.true();
     });
 
 });
