@@ -10,7 +10,9 @@ var exampleAlias = new Alias({
 
     aliases: {
         '@models': 'models',
-        '@random': 'random'
+        '@random': 'random',
+        '@another': 'another/path',
+        '@and': 'another/path'
     }
 
 });
@@ -37,6 +39,12 @@ exampleAlias.add('@bar', 'models/bar');
 exampleAlias.delete('@random');
 
 /**
+ * Delete multiple aliases
+ */
+
+exampleAlias.delete(['@another', '@and']);
+
+/**
  * Get path to foo using alias + path
  */
 
@@ -51,6 +59,13 @@ console.log(foo()); // Output: Foo
 var pathToBar = exampleAlias.path('@bar');
 var bar = require(pathToBar);
 console.log(bar()); // Output: Bar
+
+/**
+ * Require module using alias
+ */
+
+var moduleFoo = exampleAlias.require('@handlers/for/foo');
+console.log(moduleFoo()); // Output: Foo
 
 /**
  * This is the basic usage.
@@ -81,9 +96,9 @@ console.log(pathToBaz); // Output: C:\require-alias\example\app\baz (Or wherever
  * Note
  *
  * Whether you assign alias to global variable or not is up to you. Even though it is
- * highly recommended (good practice) to not assign anything to global variables, this
- * might be a good candidate for global scope. The intent of this "helper" was to make
- * requiring modules and paths easier, maybe even replace the majority of cases where
- * "require" is used.
+ * highly recommended (and also a good practice) to not assign anything to global
+ * variables, this might be a good candidate for global scope. The intent of this "helper"
+ * was to make requiring modules and paths easier, maybe even replace the majority of
+ * cases where "require" is used.
  *
  */
