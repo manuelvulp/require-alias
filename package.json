@@ -1,6 +1,6 @@
 {
     "name": "require-alias",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repository": "https://github.com/manuelvulp/require-alias",
     "homepage": "https://github.com/manuelvulp/require-alias",
     "description": "Path manager for Node.js",
