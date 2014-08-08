@@ -60,8 +60,8 @@ var Alias = require('require-alias');
 
 global.alias = new Alias({
     aliases: {
-        '@root': './',
-        '@folder': 'this/is/an/'
+        '@root': './', // will point to C:\test\
+        '@folder': 'this/is/an/' // will point to C:\test\this\is\an\
     }
 });
 
