@@ -57,11 +57,15 @@ module.exports = function () {
 `C:\test\app.js ` - the main runnable where to configure alias
 ```javascript
 var Alias = require('require-alias');
+
 global.alias = new Alias({
     aliases: {
+        '@root': './',
         '@folder': 'this/is/an/'
     }
 });
+
+alias.require('@root/random');
 ```
 `C:\test\random.js ` - just a random file to test alias
 ```javascript
