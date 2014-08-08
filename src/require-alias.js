@@ -1,4 +1,5 @@
-var mainFileDir = require('path').dirname(require.main.filename) + '/';
+var nodePath = require('path');
+var mainFileDir = nodePath.dirname(require.main.filename) + '/';
 var utils = require('./utils');
 
 var Alias = function (opts) {
@@ -11,7 +12,7 @@ var Alias = function (opts) {
 
     this.root = {
         set: function (newRoot) {
-            return root = newRoot;
+            return root = nodePath.normalize(mainFileDir + newRoot);
         },
 
         get: function () {

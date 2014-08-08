@@ -6,6 +6,10 @@ describe('Alias', function () {
 
     var alias;
 
+    var replaceSlashes = function (string) {
+        return string.replace(/\//g, '').replace(/\\/g, '');
+    };
+
     // Mocha root directory is node_modules/mocha/bin
     var root = path.join('../../../example/');
 
@@ -14,9 +18,9 @@ describe('Alias', function () {
     });
 
     it('should set root to given path', function () {
-        var newRoot = 'this/is/my/new/root';
+        var newRoot = root + 'folders/';
         var returnRoot = alias.root.set(newRoot);
-        expect(returnRoot).to.equal(newRoot);
+        expect(replaceSlashes(returnRoot)).to.include('examplefolder');
     });
 
     it('should contain key "@foo" and "@bar" if passed these in an object', function () {
@@ -54,8 +58,7 @@ describe('Alias', function () {
     it('should return correct path of file', function () {
         alias.root.set(root);
         var fooPath = alias.path('folders/foo/file');
-        console.log(fooPath);
-        expect(fooPath.indexOf('example/folders/foo/file') > -1).to.be.true();
+        expect(replaceSlashes(fooPath)).to.include('examplefoldersfoofile');
     });
 
     it('should correct module export', function () {

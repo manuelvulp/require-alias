@@ -43,6 +43,6 @@ module.exports = {
      */
 
     fromRoot: function (destination, Alias) {
-        return nodePath.normalize(mainFileDir + Alias.root.get() + destination);
+        return nodePath.normalize(Alias.root.get() + destination);
     }
 };
