@@ -69,7 +69,7 @@ alias.require('@root/random');
 ```
 `C:\test\random.js ` - just a random file to test alias
 ```javascript
-// This can be done in any other file as long as aliases are defined first and assigned to global
+// Can be done in any file as long as aliases are defined first and assigned to global
 var path = alias.path('@folder/example');
 console.log(path); // Output: C:\test\this\is\an\example
 
@@ -179,9 +179,9 @@ console.log(pathToBaz); // Output: C:\require-alias\example\app\baz (Or wherever
  *
  * Whether you assign alias to global variable or not is up to you. Even though it is
  * highly recommended (and also a good practice) to not assign anything to global
- * variables, this might be a good candidate for global scope. The intent of this "helper"
- * was to make requiring modules and paths easier, maybe even replace the majority of
- * cases where "require" is used.
+ * variables, this might be a good candidate for global scope. The intent of this
+ * "helper" was to make requiring modules and paths easier, maybe even replace the
+ * majority of cases where "require" is used.
  *
  */
 ```
