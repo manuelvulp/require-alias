@@ -12,7 +12,9 @@ npm install require-alias
 
 ## Table of Contents
 
-- [Example](#example)
+- [Quick example](#quick-example)
+
+- [Full example](#full-example)
 
 - [API](#api)
  
@@ -38,7 +40,44 @@ npm install require-alias
  
     - [`require(String)`](#aliasrequirestring)
 
-#Example
+#Quick example
+
+(Of how one might use it in project)
+
+Simple application with three files and some folders with structure like:
+
+`C:\test ` - the application folder
+
+`C:\test\this\is\an\example.js ` - random export of function that returns string 'foo'
+```javascript
+module.exports = function () {
+    return 'foo';
+};
+```
+`C:\test\app.js ` - the main runnable where to configure alias
+```javascript
+var Alias = require('require-alias');
+
+global.alias = new Alias({
+    aliases: {
+        '@root': './', // will point to C:\test\
+        '@folder': 'this/is/an/' // will point to C:\test\this\is\an\
+    }
+});
+
+alias.require('@root/random');
+```
+`C:\test\random.js ` - just a random file to test alias
+```javascript
+// Can be done in any file as long as aliases are defined first and assigned to global
+var path = alias.path('@folder/example');
+console.log(path); // Output: C:\test\this\is\an\example
+
+var module = alias.require('@folder/example');
+console.log(module()); // Output: foo
+```
+
+#Full example
 
 ```javascript
 /**
@@ -140,9 +179,9 @@ console.log(pathToBaz); // Output: C:\require-alias\example\app\baz (Or wherever
  *
  * Whether you assign alias to global variable or not is up to you. Even though it is
  * highly recommended (and also a good practice) to not assign anything to global
- * variables, this might be a good candidate for global scope. The intent of this "helper"
- * was to make requiring modules and paths easier, maybe even replace the majority of
- * cases where "require" is used.
+ * variables, this might be a good candidate for global scope. The intent of this
+ * "helper" was to make requiring modules and paths easier, maybe even replace the
+ * majority of cases where "require" is used.
  *
  */
 ```
